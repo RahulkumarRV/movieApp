@@ -1,7 +1,5 @@
-import re
-from flask import Flask, render_template, request, jsonify
-from requests.sessions import Request
-from werkzeug.utils import redirect
+
+from flask import Flask, render_template, request, jsonify, redirect
 import pymongo
 import requests
 import json
