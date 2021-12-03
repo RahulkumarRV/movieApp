@@ -1,0 +1,79 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+</head>
+
+<body>
+    <div class="container my-5">
+        <form class="form-inline my-2 my-lg-0" method="post">
+            <div class="d-flex">
+                <h4 style="margin-right: 40px">Movie Search</h4>
+                <input class="form-control mr-sm-2" type="Search" placeholder="Search Movie by Title" name="Search"
+                    aria-label="Search" />
+                <button class="btn btn-secondary btn-sm" type="submit">Search</button>
+            </div>
+        </form>
+    </div>
+    <div class="d-flex flex-row bd-highlight mb-2 container">
+        <div>
+            <img src={{data["Poster"]}} width="400px" height="400px" />
+        </div>
+        <div style="margin-left: 20px; width: 500px;">
+            <h5 id="movie_title">Title : {{data["Title"]}}</h5>
+            <p id="movie_description">Description : {{data["Plot"]}}</p>
+            <p id="movie_title">Released : {{data["Released"]}}</p>
+            <p id="movie_title">Director : {{data["Director"]}}</p>
+            <p id="movie_title">Actors : {{data["Actors"]}}</p>
+            <p id="movie_title">Writer : {{data["Writer"]}}</p>
+            <p id="movie_title">Language of Movie : {{data["Language"]}}</p>
+            <p id="movie_title">Country of Movie : {{data["Country"]}}</p>
+            <form action="/playlist" method="get">
+                <button type="submit" class="btn btn-secondary btn-sm">Add to Playlist</button>
+            </form>
+        </div>
+        <div style="margin-left: 20px; width: 300px; ">
+            
+                <form action="/playlistmovies" method="post">
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">PlayLists</label>
+                        <select class="form-control" id="select" name="select">
+                            {% for data in playlist %}
+                            <option name="{{data}}" id="{{data}}" value="{{data}}">{{data}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-secondary btn-sm">Open Playlist</button>
+                </form>
+            
+            
+            
+        </div>
+    </div>
+
+    <script>
+        function showlistfunction() {
+
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
