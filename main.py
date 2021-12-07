@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 
 mongo = pymongo.MongoClient(
-    'mongodb+srv://rahulkumarmongo:rahulkumarmongo@cluster0.0pvpt.mongodb.net/movie_db?retryWrites=true&w=majority', tls=True, tlsAllowInvalidCertificates=True)
+    'Add mongodb string here', tls=True, tlsAllowInvalidCertificates=True)
 db = pymongo.database.Database(mongo, 'movie_db')
 authcollection = pymongo.collection.Collection(db, 'auth')
 postscollection = pymongo.collection.Collection(db, 'posts')
